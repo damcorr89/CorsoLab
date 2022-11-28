@@ -1,9 +1,19 @@
 <mvc:View controllerName="zsap.cubeone.prova.controller.Home"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
+    <App id="app">
     <Page id="page" title="{i18n>title}">
         <content>
-            <Table items="{path: 'modelLibri>/table_libri/'}">
+            <Table items="{modelLibri>/table_libri/}">
+                <headerToolbar>
+						<OverflowToolbar>
+							<content>
+								<ToolbarSpacer/>
+								
+								<Button text="Crea Libro" icon="sap-icon://create" type="Emphasized" press="navToCrea"/>
+							</content>
+						</OverflowToolbar>
+					</headerToolbar>
                 <columns>
                     <Column>
                         <Text text="Anno Pubblicazione"/>
@@ -41,4 +51,5 @@
             </Table>
         </content>
     </Page>
+    </App>
 </mvc:View>

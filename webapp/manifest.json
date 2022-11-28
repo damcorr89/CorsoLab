@@ -99,6 +99,13 @@
           "target": [
             "TargetHome"
           ]
+        },
+        {
+          "name": "TargetCreaLibro",
+          "pattern": "CreaLibro",
+          "target": [
+            "TargetCreaLibro"
+          ]
         }
       ],
       "targets": {
@@ -108,6 +115,13 @@
           "clearControlAggregation": false,
           "viewId": "Home",
           "viewName": "Home"
+        },
+        "TargetCreaLibro": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "TargetCreaLibro",
+          "viewName": "CreaLibro"
         }
       }
     },

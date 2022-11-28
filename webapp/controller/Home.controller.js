@@ -13,10 +13,25 @@ sap.ui.define([
         return Controller.extend("zsap.cubeone.prova.controller.Home", {
             onInit: function () {
                 let modelSapSource = this.getOwnerComponent().getModel("pippo")
-                this.getView().setModel(new JSONModel({}), "modelLibri")
+                this.getView().setModel(new JSONModel({
+                    table_libri: [],
+                    backup_libri: [],
+                    form: {
+                        autore: "",
+                        titolo: "",
+                        editore: "FELTRINELLI",
+                        jsonProva: {
+                            a: "",
+                            b: new Date(),
+                            c: 1342
+                        }
+                    }
+                }), "modelLibri")
 
-                let aFilters = [new Filter("Titolo", FilterOperator.EQ, "Ciao")]
-
+                let aFilters = [new Filter("Autore", FilterOperator.EQ, "STEPHEN KING")]
+                let oMLibri = this.getView().getModel("modelLibri")
+                var ciccio = oMLibri.getProperty("/form/jsonProva")
+                debugger
                 modelSapSource.read("/Zlibry03Set", {
                     filters: aFilters,
                     success: (oData) => {
@@ -26,11 +41,16 @@ sap.ui.define([
                             element.DataCreazione = new Date()
                         }
                         oMLibri.setProperty("/table_libri", oData.results)
+                        oMLibri.setProperty("/backup_libri", oData.results)
                     },
                     error: (err) => {
                         debugger
                     }
                 })
+            },
+            navToCrea: function () {
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("TargetCreaLibro")
             }
         });
     });

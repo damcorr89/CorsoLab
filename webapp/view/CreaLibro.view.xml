@@ -1,0 +1,32 @@
+<mvc:View controllerName="zsap.cubeone.prova.controller.CreaLibro"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <App id="app">
+        <Page id="creaLibro" title="Crea Libro">
+            <content>
+            <f:SimpleForm id="formInserimentoSottoStrumento" editable="true" singleContainerFullSize="false" adjustLabelSpan="false"
+                layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="2" emptySpanL="0" emptySpanM="2"
+                emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+                <f:toolbar>
+                    <Toolbar >
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://create" text="Salva" type="Emphasized" press="onCreaLibro"/>
+                    </Toolbar>
+                </f:toolbar>
+                    <f:content>
+                        <Label text="Anno Pubblicazione"/>
+                        <Input value="{modelCreaLibro>/formCreaLibro/annopubb}" width="70%" showValueHelp="false"/>
+                        <Label text="Autore"/>
+                        <Input value="{modelCreaLibro>/formCreaLibro/autore}" width="70%" showValueHelp="false"/>
+                        <Label text="Editore"/>
+                        <Input value="{modelCreaLibro>/formCreaLibro/editore}" width="70%" showValueHelp="false"/>
+                        <Label text="Nr Pagine"/>
+                        <Input value="{modelCreaLibro>/formCreaLibro/nrpagine}" width="70%" showValueHelp="false"/>
+                        <Label text="Titolo"/>
+                        <Input value="{modelCreaLibro>/formCreaLibro/titolo}" width="70%" showValueHelp="false"/>
+                    </f:content>
+                </f:SimpleForm>
+            </content>
+        </Page>
+    </App>
+</mvc:View>
