@@ -24,10 +24,11 @@ sap.ui.define([
                 let oForm = this.getView().getModel("modelCreaLibro").getProperty("/formCreaLibro")
 
                 let oPayload = {
+                    Mandt: '100',
                     Titolo: oForm.titolo,
                     Autore: oForm.autore,
                     Annopubl: oForm.annopubb,
-                    Nrpagine: oForm.nrpagine,
+                    Nrpagine: Number(oForm.nrpagine),
                     Editore: oForm.editore
                 }
                 modelSapSource.create("/Zlibry03Set", oPayload, {
@@ -40,6 +41,6 @@ sap.ui.define([
                         MessageBox.error("Errore nella creazione del libro")
                     }
                 })
-            }
+            },
         });
     });

@@ -1,0 +1,32 @@
+<mvc:View controllerName="zsap.cubeone.prova.controller.UpdateLibro"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <App id="app">
+        <Page id="updateLibro" title="Modifica Libro">
+            <content>
+            <f:SimpleForm id="formInserimentoSottoStrumento" editable="true" singleContainerFullSize="false" adjustLabelSpan="false"
+                layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="2" emptySpanL="0" emptySpanM="2"
+                emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+                <f:toolbar>
+                    <Toolbar >
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://create" text="Salva" type="Emphasized" press="onModifyLibro"/>
+                    </Toolbar>
+                </f:toolbar>
+                    <f:content>
+                        <Label text="Anno Pubblicazione"/>
+                        <Input value="{modelUpdateLibro>/formUpdateLibro/Annopubl}" width="70%" showValueHelp="false"/>
+                        <Label text="Autore"/>
+                        <Input value="{modelUpdateLibro>/formUpdateLibro/Autore}" width="70%" showValueHelp="false"/>
+                        <Label text="Editore"/>
+                        <Input value="{modelUpdateLibro>/formUpdateLibro/Editore}" width="70%" showValueHelp="false"/>
+                        <Label text="Nr Pagine"/>
+                        <Input value="{modelUpdateLibro>/formUpdateLibro/Nrpagine}" width="70%" showValueHelp="false"/>
+                        <Label text="Titolo"/>
+                        <Input value="{modelUpdateLibro>/formUpdateLibro/Titolo}" width="70%" showValueHelp="false" editable="false"/>
+                    </f:content>
+                </f:SimpleForm>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

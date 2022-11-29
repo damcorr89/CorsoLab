@@ -1,15 +1,27 @@
 <mvc:View controllerName="zsap.cubeone.prova.controller.Home"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:fb="sap.ui.comp.filterbar" displayBlock="true"
     xmlns="sap.m">
     <App id="app">
     <Page id="page" title="{i18n>title}">
         <content>
-            <Table items="{modelLibri>/table_libri/}">
+        	<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Autore"  visibleInFilterBar="true">
+                        <fb:control>
+                            <Select ></Select>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+            <Table items="{modelLibri>/table_libri/}" mode="SingleSelectLeft" id="tableLibri">
                 <headerToolbar>
 						<OverflowToolbar>
 							<content>
 								<ToolbarSpacer/>
 								
+								<Button text="Modifica Libro" icon="sap-icon://edit" type="Emphasized" press="navToUpdate"/>
 								<Button text="Crea Libro" icon="sap-icon://create" type="Emphasized" press="navToCrea"/>
 							</content>
 						</OverflowToolbar>

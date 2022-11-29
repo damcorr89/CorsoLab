@@ -106,6 +106,13 @@
           "target": [
             "TargetCreaLibro"
           ]
+        },
+        {
+          "name": "TargetUpdateLibro",
+          "pattern": "UpdateLibro/{Mandt}/{Titolo}",
+          "target": [
+            "TargetUpdateLibro"
+          ]
         }
       ],
       "targets": {
@@ -122,6 +129,13 @@
           "clearControlAggregation": false,
           "viewId": "TargetCreaLibro",
           "viewName": "CreaLibro"
+        },
+        "TargetUpdateLibro": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "TargetUpdateLibro",
+          "viewName": "UpdateLibro"
         }
       }
     },

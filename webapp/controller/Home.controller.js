@@ -12,6 +12,10 @@ sap.ui.define([
 
         return Controller.extend("zsap.cubeone.prova.controller.Home", {
             onInit: function () {
+                const oRouter = this.getOwnerComponent().getRouter()
+                oRouter.getRoute("RouteHome").attachPatternMatched(this._onObjectMatched, this);
+            },
+            _onObjectMatched: function (oEvent) {
                 let modelSapSource = this.getOwnerComponent().getModel("pippo")
                 this.getView().setModel(new JSONModel({
                     table_libri: [],
@@ -28,7 +32,7 @@ sap.ui.define([
                     }
                 }), "modelLibri")
 
-                let aFilters = [new Filter("Autore", FilterOperator.EQ, "STEPHEN KING")]
+                let aFilters = []
                 let oMLibri = this.getView().getModel("modelLibri")
                 var ciccio = oMLibri.getProperty("/form/jsonProva")
                 debugger
@@ -46,11 +50,25 @@ sap.ui.define([
                     error: (err) => {
                         debugger
                     }
-                })
+                })  
             },
             navToCrea: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("TargetCreaLibro")
+            },
+            navToUpdate: function (oEvent) {
+                let oMLibri = this.getView().getModel("modelLibri")
+                //let aSelectedItems = oEvent.getSource().getParent().getParent().getSelectedContextPaths()
+                let aSelectedItems = this.getView().byId("tableLibri").getSelectedContextPaths()
+                let sPath = aSelectedItems[0]
+
+                let oSelectedItem = oMLibri.getProperty(sPath)
+
+                var oRouter = this.getOwnerComponent().getRouter()
+                oRouter.navTo("TargetUpdateLibro", {
+                    Mandt: '100',
+                    Titolo: oSelectedItem.Titolo
+                })
             }
         });
     });
